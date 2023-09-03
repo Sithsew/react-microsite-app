@@ -4,7 +4,8 @@ import NavBar from "./NavBar";
 import ResponsiveSlider from "./ResponsiveSlider";
 import Spinner from "./Spinner";
 
-const BASE_URL = "http://localhost:9000";
+// const BASE_URL = "http://localhost:9000";
+const BASE_URL = "https://run.mocky.io/v3";
 
 function Article({ data }) {
   const { image, title, description } = data;
@@ -34,7 +35,7 @@ function Discover() {
 
   const getBackgroundImage = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/background-image`);
+      const response = await fetch(`${BASE_URL}/c13b7082-65b6-4baa-a6b8-c8a744ee994b`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -49,7 +50,7 @@ function Discover() {
 
   const getPlaces = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/places`);
+      const response = await fetch(`${BASE_URL}/ba35c516-af13-4bc0-8a29-fc5a59595461`);
 
       if (!response.ok) {
         throw new Error("Network response was not ok");

@@ -7,7 +7,9 @@ import VerticalCarousel from "./VerticalCarousel ";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa6";
 import Spinner from "./Spinner";
 
-const BASE_URL = "http://localhost:9000";
+// const BASE_URL = "http://localhost:9000";
+const BASE_URL = "https://run.mocky.io/v3";
+
 function Home() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,7 +22,7 @@ function Home() {
   }, []);
   const getBackgroundVideo = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/background-video`);
+      const response = await fetch(`${BASE_URL}/4f34e7e2-fd7d-40f4-9faf-61a64e4091e7`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -35,7 +37,7 @@ function Home() {
 
   const getDescription = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/about`);
+      const response = await fetch(`${BASE_URL}/a8bd9e9e-4094-4f48-8571-bbd2c4529f7b`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
