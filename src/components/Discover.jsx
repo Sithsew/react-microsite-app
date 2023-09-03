@@ -24,12 +24,30 @@ function Article({ data }) {
 function Discover() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [backgroundImage, setBackgroundImage] = useState("");
+  const [backgroundImageLoading, setBackgroundImageLoading] = useState(true);
 
   useEffect(() => {
-    fetchData();
+    getBackgroundImage();
+    getPlaces();
   }, []);
 
-  const fetchData = async () => {
+  const getBackgroundImage = async () => {
+    try {
+      const response = await fetch(`${BASE_URL}/background-image`);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setBackgroundImage(data.imageUrl);
+      setBackgroundImageLoading(false);
+    } catch (error) {
+      console.error("Error fetching background image:", error);
+      setBackgroundImageLoading(false);
+    }
+  };
+
+  const getPlaces = async () => {
     try {
       const response = await fetch(`${BASE_URL}/places`);
 
@@ -52,13 +70,16 @@ function Discover() {
   ));
 
   return (
-    <div className="responsive-background">
+    <div
+      className="responsive-background"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       <NavBar />
       <div className="centered-content">
         <div className="cards">
           <h3>More Places to Visit</h3>
           {loading ? (
-            <Spinner />
+            <Spinner color={"#c1e0ce"} />
           ) : data.length > 0 ? (
             <ResponsiveSlider
               cardsTemplate={cardsTemplate}

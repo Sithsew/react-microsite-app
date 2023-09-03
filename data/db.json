@@ -40,5 +40,11 @@
          "title": "Nature's Playground",
          "description": "Sri Lanka, often referred to as the \"Emerald Isle,\" beckons adventurers with its breathtaking natural beauty. From the misty heights of Ella's lush tea plantations to the untouched wilderness of Yala National Park, this island paradise offers a diverse range of outdoor experiences. Whether you're trekking through dense rainforests, encountering majestic elephants on safari, or simply basking on golden beaches."
       }
-   ]
+   ],
+   "background-video": {
+      "videoUrl" : "https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/B3RbGqyLolagm91st/videoblocks-p9850125_beach_4k_rpaaa5f_j__8fa80dde1827a2aa714f38a7fffd2f2c__P360.mp4"
+   },
+   "background-image": {
+      "imageUrl" : "https://media.istockphoto.com/id/1060907560/photo/adult-sri-lankan-elephant-on-the-road.jpg?s=612x612&w=0&k=20&c=I-YZB67Zx1bQC_BEywt88o0Rspc1aNIrL5yT2BH1vfg="
+   }
 }

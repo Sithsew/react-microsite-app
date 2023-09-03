@@ -2,9 +2,9 @@ import Slider from "react-slick";
 
 function ResponsiveSlider({
   cardsTemplate,
-  fade,
+  fade = false,
   isVertical,
-  slidesToShow,
+  slidesToShow = 1,
   slidesToScroll,
   showDots,
   showArrows,
@@ -25,25 +25,25 @@ function ResponsiveSlider({
           slidesToShow: slidesToShow,
           slidesToScroll: slidesToScroll,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
       {
         breakpoint: 540,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return <Slider {...settings}>{cardsTemplate}</Slider>;

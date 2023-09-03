@@ -11,12 +11,29 @@ const BASE_URL = "http://localhost:9000";
 function Home() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [backgroundVideo, setBackgroundVideo] = useState("");
+  const [backgroundVideoLoading, setBackgroundVideoLoading] = useState(true);
 
   useEffect(() => {
-    fetchData();
+    getBackgroundVideo();
+    getDescription();
   }, []);
+  const getBackgroundVideo = async () => {
+    try {
+      const response = await fetch(`${BASE_URL}/background-video`);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setBackgroundVideo(data.videoUrl);
+      setBackgroundVideoLoading(false);
+    } catch (error) {
+      console.error("Error fetching background video:", error);
+      setBackgroundVideoLoading(false);
+    }
+  };
 
-  const fetchData = async () => {
+  const getDescription = async () => {
     try {
       const response = await fetch(`${BASE_URL}/about`);
       if (!response.ok) {
@@ -31,51 +48,54 @@ function Home() {
     }
   };
 
-  const cardsTemplate =
-    data.length > 0 ? (
-      data.map((item, index) => (
-        <div key={index}>
-          <p>
-            <FaQuoteLeft />
-            {item.description} <FaQuoteRight />
-          </p>
-        </div>
-      ))
-    ) : (
-      <p>Something Went Wrong!</p>
-    );
+  const cardsTemplate = data.map((item, index) => (
+    <div key={index}>
+      <p>
+        <FaQuoteLeft />
+        {item.description} <FaQuoteRight />
+      </p>
+    </div>
+  ));
 
   return (
-    <div className="home">
-      <video
-        className="video-bg"
-        src="https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/B3RbGqyLolagm91st/videoblocks-p9850125_beach_4k_rpaaa5f_j__8fa80dde1827a2aa714f38a7fffd2f2c__P360.mp4"
-        autoPlay
-        loop
-        muted
-      />
-      <div className="bg-overlay"></div>
-      <NavBar />
-      <div className="home-text">
-        <h1>Visit Sri Lanka</h1>
-        <p>Come live out your ideal vacation with us</p>
-      </div>
-      <div className="carouselItem">
-        {loading ? (
-          <Spinner/>
-        ) : (
-          <VerticalCarousel
-            cardsTemplate={cardsTemplate}
-            fade={true}
-            isVertical={true}
-            slidesToShow={3}
-            slidesToScroll={1}
-            showDots={false}
-            showArrows={false}
+    <>
+      {backgroundVideoLoading ? (
+        <Spinner color={'#42f58d'}/>
+      ) : (
+        <div className="home">
+          <video
+            className="video-bg"
+            src={backgroundVideo}
+            autoPlay
+            loop
+            muted
           />
-        )}
-      </div>
-    </div>
+          <div className="bg-overlay"></div>
+          <NavBar />
+          <div className="home-text">
+            <h1>Visit Sri Lanka</h1>
+            <p>Come live out your ideal vacation with us</p>
+          </div>
+          <div className="carouselItem">
+            {loading ? (
+        <Spinner color={'#c1e0ce'}/>
+        ) : data.length > 0 ? (
+              <VerticalCarousel
+                cardsTemplate={cardsTemplate}
+                fade={true}
+                isVertical={true}
+                slidesToShow={3}
+                slidesToScroll={1}
+                showDots={false}
+                showArrows={false}
+              />
+            ) : (
+              <h1>Something Went Wrong!</h1>
+            )}
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

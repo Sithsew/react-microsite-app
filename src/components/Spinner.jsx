@@ -1,14 +1,14 @@
 import { ThreeDots } from "react-loader-spinner";
 import "./Spinner.css";
 
-function Spinner() {
+function Spinner({color}) {
   return (
     <div className="spinnerStyle">
       <ThreeDots
         height="80"
         width="80"
         radius="15"
-        color="white"
+        color={color}
         ariaLabel="three-dots-loading"
         wrapperStyle={{}}
         wrapperClassName=""

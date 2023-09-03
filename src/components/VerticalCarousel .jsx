@@ -7,14 +7,13 @@ import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 
 function VerticalCarousel({
   cardsTemplate,
-  fade,
+  fade = false,
   isVertical,
-  slidesToShow,
+  slidesToShow = 1,
   slidesToScroll,
   showDots,
   showArrows,
 }) {
-
   const settings = {
     infinite: true,
     slidesToShow: slidesToShow,
@@ -31,32 +30,32 @@ function VerticalCarousel({
           slidesToShow: slidesToShow,
           slidesToScroll: slidesToScroll,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 1
-        }
+          initialSlide: 1,
+        },
       },
       {
         breakpoint: 540,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
+          slidesToScroll: 1,
+        },
       },
       {
         breakpoint: 280,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const sliderRef = useRef(null);
@@ -90,7 +89,7 @@ function VerticalCarousel({
       <button className="carousel-button prev-button" onClick={handlePrevClick}>
         <FaAngleUp />
       </button>
-      <div  className="slider-container" onWheel={handleMouseScroll}>
+      <div className="slider-container" onWheel={handleMouseScroll}>
         <Slider {...settings} ref={sliderRef}>
           {cardsTemplate}
         </Slider>

@@ -160,7 +160,6 @@
 }
 
 .responsive-background {
-  background-image: url("https://media.istockphoto.com/id/1060907560/photo/adult-sri-lankan-elephant-on-the-road.jpg?s=612x612&w=0&k=20&c=I-YZB67Zx1bQC_BEywt88o0Rspc1aNIrL5yT2BH1vfg=");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -171,6 +170,7 @@
   top: 0;
   left: 0;
   z-index: -1;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .centered-content {
