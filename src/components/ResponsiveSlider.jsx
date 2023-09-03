@@ -65,11 +65,11 @@ function ResponsiveSlider({
 
   return (
     <>
-      <button className="slider-button prev-button" onClick={handlePrevClick}>
+      <button className="slider-button prev-arrow-button" onClick={handlePrevClick}>
         <FaAngleLeft />
       </button>
       <Slider {...settings}  ref={sliderRef}>{cardsTemplate}</Slider>;
-      <button className="slider-button next-button" onClick={handleNextClick}>
+      <button className="slider-button next-arrow-button" onClick={handleNextClick}>
         <FaAngleRight />
       </button>
     </>

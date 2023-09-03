@@ -58,28 +58,28 @@ function VerticalCarousel({
     ],
   };
 
-  const sliderRef = useRef(null);
+  const vSliderRef = useRef(null);
 
   const handlePrevClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPrev();
+    if (vSliderRef.current) {
+      vSliderRef.current.slickPrev();
     }
   };
 
   const handleNextClick = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext();
+    if (vSliderRef.current) {
+      vSliderRef.current.slickNext();
     }
   };
 
   const handleMouseScroll = (e) => {
-    if (sliderRef.current) {
+    if (vSliderRef.current) {
       if (e.deltaY > 0) {
         // Scroll down
-        sliderRef.current.slickNext();
+        vSliderRef.current.slickNext();
       } else if (e.deltaY < 0) {
         // Scroll up
-        sliderRef.current.slickPrev();
+        vSliderRef.current.slickPrev();
       }
     }
   };
@@ -90,7 +90,7 @@ function VerticalCarousel({
         <FaAngleUp />
       </button>
       <div className="slider-container" onWheel={handleMouseScroll}>
-        <Slider {...settings} ref={sliderRef}>
+        <Slider {...settings} ref={vSliderRef}>
           {cardsTemplate}
         </Slider>
       </div>
