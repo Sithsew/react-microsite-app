@@ -38,7 +38,7 @@
 }
 
 .home-text {
-    width: 60%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,8 +54,8 @@ h1 {
 }
 
 p {
-    justify-self: flex-end;
-
+  /* justify-self: flex-end; */
+  text-align: justify;
   font-size: 2em;
 }
 
@@ -76,46 +76,45 @@ p {
 }
 
 @media (max-width: 1280px) {
-    h1 {
-        font-size: 6em;
-      }
-      p {
-        font-size: 2em;
-      }
+  h1 {
+    font-size: 6em;
   }
-  
-  /* Adjust max-width for screens with a maximum width of 1024px */
-  @media (max-width: 1024px) {
-    h1 {
-        font-size: 4em;
-        
-      }
-      p {
-        font-size: 30px;
-      }
+  p {
+    font-size: 2em;
   }
-  
-  /* Adjust max-width for screens with a maximum width of 768px */
-  @media (max-width: 767px) {
-    h1 {
-        font-size: 28px;
-    }
-    .home-text{
-        margin-top: 15%;
-      }
-      p {
-        font-size: 18px;
-      }
+}
+
+/* Adjust max-width for screens with a maximum width of 1024px */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 4em;
   }
-  
-  @media (max-width: 280px) {
-    h1 {
-        font-size: 24px;
-    }
-    .home-text{
-        margin-top: 20%;
-      }
-      p {
-        font-size: 15px;
-      }
+  p {
+    font-size: 28px;
   }
+}
+
+/* Adjust max-width for screens with a maximum width of 768px */
+@media (max-width: 767px) {
+  h1 {
+    font-size: 28px;
+  }
+  .home-text {
+    margin-top: 15%;
+  }
+  p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 280px) {
+  h1 {
+    font-size: 24px;
+  }
+  .home-text {
+    margin-top: 20%;
+  }
+  p {
+    font-size: 15px;
+  }
+}

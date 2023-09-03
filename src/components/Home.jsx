@@ -1,32 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./Home.css";
 
 import NavBar from "./NavBar";
 import VerticalCarousel from "./VerticalCarousel ";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa6";
+import Spinner from "./Spinner";
 
-const Home = () => {
-  const data = [
-    {
-      title: "Cultural Gem",
+const BASE_URL = "http://localhost:9000";
+function Home() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-      description:
-        "Steeped in history and tradition, Sri Lanka boasts a rich cultural heritage that entices history buffs and cultural enthusiasts alike. Explore the ancient city of Polonnaruwa, home to centuries-old temples and royal ruins, or marvel at the architectural marvel that is the Sigiriya Rock Fortress. As you journey through this land, you'll discover a tapestry of customs and festivals that reflect the island's diverse religious and ethnic influences. Sri Lanka's vibrant cultural tapestry invites visitors to immerse themselves in its storied past.",
-    },
-    {
-      title: "Nature's Playground",
-      description:
-        "Sri Lanka, often referred to as the \"Emerald Isle,\" beckons adventurers with its breathtaking natural beauty. From the misty heights of Ella's lush tea plantations to the untouched wilderness of Yala National Park, this island paradise offers a diverse range of outdoor experiences. Whether you're trekking through dense rainforests, encountering majestic elephants on safari, or simply basking on golden beaches, Sri Lanka's pristine landscapes cater to every traveler's longing for adventure.",
-    },
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    {
-      title: "Warmth of the People",
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`${BASE_URL}/about`);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const apiData = await response.json();
+      setData(apiData);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false);
+    }
+  };
 
-      description:
-        "Beyond its stunning landscapes and historical wonders, it's the warm-hearted Sri Lankan people who truly make this destination special. Locals welcome tourists with open arms, eager to share their traditions, stories, and flavorsome cuisine. From sipping freshly brewed Ceylon tea in a local home to partaking in traditional dance performances, visitors can engage in immersive cultural experiences that foster connections and create lasting memories.",
-    },
-  ];
   const cardsTemplate =
     data.length > 0 ? (
       data.map((item, index) => (
@@ -57,18 +61,22 @@ const Home = () => {
         <p>Come live out your ideal vacation with us</p>
       </div>
       <div className="carouselItem">
-        <VerticalCarousel
-          cardsTemplate={cardsTemplate}
-          fade={true}
-          isVertical={true}
-          slidesToShow={3}
-          slidesToScroll={1}
-          showDots={false}
-          showArrows={false}
-        />
+        {loading ? (
+          <Spinner/>
+        ) : (
+          <VerticalCarousel
+            cardsTemplate={cardsTemplate}
+            fade={true}
+            isVertical={true}
+            slidesToShow={3}
+            slidesToScroll={1}
+            showDots={false}
+            showArrows={false}
+          />
+        )}
       </div>
     </div>
   );
-};
+}
 
 export default Home;

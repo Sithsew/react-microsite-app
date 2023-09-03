@@ -1,0 +1,44 @@
+{
+   "places": [
+      {
+         "image": "https://www.holidify.com/images/bgImages/ARUGAM-BAY.jpg",
+         "title": "Arugam Bay Beach",
+         "description": "The Sri Lankan coastal town of Arugam Bay lies on the Indian Ocean, 320 kilometres from the capital city Colombo. With several surfing spots scattered across the area, for both beginners as well as skilled surfers, Arugam Bay is often called a surfer’s paradise. "
+      },
+      {
+         "image": "https://www.holidify.com/images/bgImages/GALLE.jpg",
+         "title": "Galle Fort",
+         "description": "Primarily known for the famous Galle Fort, a UNESCO World Heritage Site, the city has played a significant role in the country’s lengthy colonial history."
+      },
+      {
+         "image": "https://www.holidify.com/images/bgImages/ADAMS-PEAK.jpg",
+         "title": "Adam’s Peak",
+         "description": "As one of the most famous pilgrimage sites in the Indian subcontinent, Adam’s Peak is a 7,359 feet tall mountain in Sri Lanka, frequently visited by people of almost all major religions."
+      },
+      {
+         "image": "https://www.holidify.com/images/bgImages/YALA-NATIONAL-PARK.jpg",
+         "title": "Yala National Park",
+         "description": "Yala National Park was originally a hunters arena during British colonial rule but now has the highest population of leopards on earth."
+      },
+      {
+         "image": "https://www.holidify.com/images/bgImages/KANDY.jpg",
+         "title": "Temple Of The Sacred Tooth Relic",
+         "description": "Kandy is a beautiful place in Sri Lanka found precisely in the middle of the country. A city of both historical as well as religious importance, Kandy is renowned for being the site of the Temple Of The Sacred Tooth Relic, unarguably the most famous among all the temples of Sri Lanka. "
+      },
+      {
+         "image": "https://www.holidify.com/images/bgImages/POLONNARUWA.jpg",
+         "title": "The Royal Palace of King Parakramabahu ",
+         "description": "This beautiful place in Sri Lanka once served as the capital of the Kingdom of Polonnaruwa under the Chola Empire in the 10th century."
+      }
+   ],
+   "about": [
+      {
+         "title": "Cultural Gem",
+         "description": "Steeped in history and tradition, Sri Lanka boasts a rich cultural heritage that entices history buffs and cultural enthusiasts alike. Explore the ancient city of Polonnaruwa, home to centuries-old temples and royal ruins, or marvel at the architectural marvel that is the Sigiriya Rock Fortress. As you journey through this land, you'll discover a tapestry of customs and festivals that reflect the island's diverse religious and ethnic influences."
+      },
+      {
+         "title": "Nature's Playground",
+         "description": "Sri Lanka, often referred to as the \"Emerald Isle,\" beckons adventurers with its breathtaking natural beauty. From the misty heights of Ella's lush tea plantations to the untouched wilderness of Yala National Park, this island paradise offers a diverse range of outdoor experiences. Whether you're trekking through dense rainforests, encountering majestic elephants on safari, or simply basking on golden beaches."
+      }
+   ]
+}
