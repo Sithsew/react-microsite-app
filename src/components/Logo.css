@@ -1,0 +1,30 @@
+.logo {
+  height: 4.2rem;
+  flex: 1;
+}
+
+@media (max-width: 1280px) {
+  .logo {
+    height: 4rem;
+  }
+}
+
+/* Adjust max-width for screens with a maximum width of 1024px */
+@media (max-width: 1024px) {
+  .logo {
+    height: 3.8rem;
+  }
+}
+
+/* Adjust max-width for screens with a maximum width of 768px */
+@media (max-width: 767px) {
+  .logo {
+    height: 3.2rem;
+  }
+}
+
+@media (max-width: 280px) {
+  .logo {
+    height: 2.5rem;
+  }
+}

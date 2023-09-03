@@ -1,0 +1,36 @@
+.vertical-carousel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .carousel-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 1% 1%;
+    cursor: pointer;
+    z-index: 2;
+    text-align: center;
+    margin: 1% 0; /* Add some vertical spacing between buttons and the slider */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transitions for background and transform */
+}
+
+.carousel-button:hover {
+  background-color: #9e9e9e;
+  transform: scale(1.1); /* Increase button size on hover */
+}
+  
+  .prev-button {
+    order: 1; /* Display at the top */
+  }
+  
+  .next-button {
+    order: 3; /* Display at the bottom */
+  }
+  
+  /* Give some space to the slider container */
+  .slider-container{
+    order: 2; /* Display in the middle */
+  }
+  
