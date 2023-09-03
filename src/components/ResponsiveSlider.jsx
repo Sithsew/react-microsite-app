@@ -1,4 +1,7 @@
 import Slider from "react-slick";
+import "./ResponsiveSlider.css";
+import { useRef } from "react";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 
 function ResponsiveSlider({
   cardsTemplate,
@@ -46,7 +49,31 @@ function ResponsiveSlider({
     ],
   };
 
-  return <Slider {...settings}>{cardsTemplate}</Slider>;
+  const sliderRef = useRef(null);
+
+  const handlePrevClick = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
+
+  const handleNextClick = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+
+  return (
+    <>
+      <button className="slider-button prev-button" onClick={handlePrevClick}>
+        <FaAngleLeft />
+      </button>
+      <Slider {...settings}  ref={sliderRef}>{cardsTemplate}</Slider>;
+      <button className="slider-button next-button" onClick={handleNextClick}>
+        <FaAngleRight />
+      </button>
+    </>
+  );
 }
 
 export default ResponsiveSlider;

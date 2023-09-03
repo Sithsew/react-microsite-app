@@ -70,32 +70,37 @@ function Discover() {
   ));
 
   return (
-    <div
-      className="responsive-background"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-    >
-      <NavBar />
-      <div className="centered-content">
-        <div className="cards">
-          <h3>More Places to Visit</h3>
-          {loading ? (
-            <Spinner color={"#c1e0ce"} />
-          ) : data.length > 0 ? (
-            <ResponsiveSlider
-              cardsTemplate={cardsTemplate}
-              fade={false}
-              isVertical={false}
-              slidesToShow={3}
-              slidesToScroll={1}
-              showDots={false}
-              showArrows={true}
-            />
-          ) : (
-            <h1>Something Went Wrong!</h1>
-          )}
+    <>
+      {
+      backgroundImageLoading ?<Spinner color={'#42f58d'}/>: (
+        <div
+          className="responsive-background"
+          style={{ backgroundImage: `url(${backgroundImage})` }}
+        >
+          <NavBar />
+          <div className="centered-content">
+            <div className="cards">
+              <h3>More Places to Visit</h3>
+              {loading ? (
+                <Spinner color={"#c1e0ce"} />
+              ) : data.length > 0 ? (
+                <ResponsiveSlider
+                  cardsTemplate={cardsTemplate}
+                  fade={false}
+                  isVertical={false}
+                  slidesToShow={3}
+                  slidesToScroll={1}
+                  showDots={false}
+                  showArrows={true}
+                />
+              ) : (
+                <h1>Something Went Wrong!</h1>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
 
